@@ -1,0 +1,69 @@
+.for-you__recommended--books {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x;
+    margin-bottom: 32px;
+    gap: 16px;
+}
+
+.for-you__recommended--book-link {
+    position: relative;
+    scroll-snap-align: start;
+    max-width: 200px;
+    width: 100%;
+    padding: 32px 12px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.book__image--wrapper {
+    width: 172px;
+    height: 172px;
+}
+
+.book__image {
+    width: 100%;
+    height: 100%;
+}
+
+.recommended__book--title {
+    font-size: 16px;
+    font-weight: 700;
+    color: rgb(3, 43, 65);
+    margin-bottom: 8px;
+}
+
+.recommended__book--author {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgb(107, 117, 123);
+    margin-bottom: 8px;
+}
+
+.recommended__book--sub-title {
+    font-size: 14px;
+    color: rgb(57, 69, 71);
+    margin-bottom: 8px;
+}
+
+.recommended__book--details-wrapper {
+    display: flex;
+    gap: 8px;
+}
+
+.recommended__book--details {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 300;
+    color: rgb(107, 117, 123);
+    gap: 4px;
+}
+
+.recommended__book--details-icon {
+    display: flex
+;
+    width: 16px;
+    height: 16px;
+}
+
