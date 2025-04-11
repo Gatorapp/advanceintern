@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import styles from "./page.module.css";
 import { AiFillAudio, AiFillBulb, AiFillFileText } from "react-icons/ai";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import { BiCrown } from "react-icons/bi";
@@ -13,7 +12,6 @@ export default function Home() {
     const [isModalOpen, setIsModalOpen] = useState(false);
   
     const toggleModal = () => {
-      console.log("Toggling modal"); // Debugging log
       setIsModalOpen(!isModalOpen);
     };
   return (
@@ -24,7 +22,7 @@ export default function Home() {
           <Image className="nav__img" src="/assets/logo.png" alt="logo" width={100} height={50} />
         </figure>
         <ul className="nav__list--wrapper">
-          <li className="nav__list nav__list--login">Login</li>
+        <li className="nav__list nav__list--login" onClick={toggleModal}>Login</li>
           <li className="nav__list nav__list--mobile">About</li>
           <li className="nav__list nav__list--mobile">Contact</li>
           <li className="nav__list nav__list--mobile">Help</li>
@@ -47,11 +45,11 @@ export default function Home() {
                 <br className="remove--tablet" />
                 and even people who don’t like to read.
               </div>
-              <div>
+                  <div>
                     <button className="btn home__cta--btn" onClick={toggleModal} >
                       Login
                     </button>
-                    <Modal isOpen={isModalOpen} toggleModal={toggleModal} />
+                    <Modal isOpen={isModalOpen} toggleModal={toggleModal} onClose={toggleModal} />
                   </div>
             </div>
             <figure className="landing__image--mask">

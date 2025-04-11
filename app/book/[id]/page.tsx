@@ -10,6 +10,7 @@ import './book.css';
 import { useRouter } from 'next/navigation';
 import { CiBookmark } from 'react-icons/ci';
 import { IoBookmark } from "react-icons/io5";
+import SearchBar from '@/app/components/SearchBar/page';
 
 interface BookPageProps {
   params: Promise<{
@@ -37,7 +38,7 @@ const Book = ({ params }: BookPageProps) => {
   const router = useRouter();
   const [book, setBook] = useState<Book | null>(null);
   const [loading, setLoading] = useState(true);
-  const [rror, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const [savedBooks, setSavedBooks] = useState<number[]>([]);
 
   useEffect(() => {
@@ -73,8 +74,12 @@ const Book = ({ params }: BookPageProps) => {
         }
         const data = await response.json();
         setBook(data);
-      } catch (err: Error) {
-        setError(err.message);
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError('An unknown error occurred');
+        }
       } finally {
         setLoading(false);
       }
@@ -98,19 +103,22 @@ const Book = ({ params }: BookPageProps) => {
 
 
   const handleAddToLibrary = (book: Book) => {
+    if (typeof window === "undefined") return; 
+  
     const existing = localStorage.getItem("myLibrary");
-    let library = existing ? JSON.parse(existing) : [];
-
+    let library: Book[] = existing ? JSON.parse(existing) : [];
+  
     if (savedBooks.includes(book.id)) {
-      library = library.filter((b: Book) => b.id !== book.id);
-      localStorage.setItem("myLibrary", JSON.stringify(library));
+      library = library.filter((b) => b.id !== book.id);
       setSavedBooks((prev) => prev.filter((id) => id !== book.id));
     } else {
       library.push(book);
-      localStorage.setItem("myLibrary", JSON.stringify(library));
       setSavedBooks((prev) => [...prev, book.id]);
     }
+  
+    localStorage.setItem("myLibrary", JSON.stringify(library));
   };
+  
 
 
 
@@ -121,7 +129,7 @@ const Book = ({ params }: BookPageProps) => {
           <Sidebar />
           <div className="content__wrapper">
             <div className="row">
-              {/* <SearchBar /> */}
+              <SearchBar />
               <div className="container">
                 <div className="inner__wrapper">
                   <div className="inner__book">

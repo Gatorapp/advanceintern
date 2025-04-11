@@ -36,15 +36,15 @@ export default function Page() {
                             <p>No books added yet.</p>
                         ) : (
                             <div className='for-you__recommended--books--wrapper'>
-                                {library.map((book) => (
-                                        <a href={`/book/${book.id}`} key={book.id} className="for-you__recommended--books-link">
-                                            <img src={book.imageLink} alt={book.title} width={100} />
-                                            <div>
-                                                <div className='recommended__book--title'>{book.title}</div>
-                                                <div className='recommended__book--author'>{book.author}</div>
-                                                <div className='recommended__book--sub-title'>{book.subTitle}</div>
-                                            </div>
-                                        </a>
+                                {library.slice(0, 5).map((book) => (
+                                    <a href={`/book/${book.id}`} key={book.id} className="for-you__recommended--books-link">
+                                        <img src={book.imageLink} alt={book.title} width={172} height={172} />
+                                        <div>
+                                            <div className='recommended__book--title'>{book.title}</div>
+                                            <div className='recommended__book--author'>{book.author}</div>
+                                            <div className='recommended__book--sub-title'>{book.subTitle}</div>
+                                        </div>
+                                    </a>
                                 ))}
                             </div>
                         )}
