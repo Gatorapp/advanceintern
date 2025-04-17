@@ -1,36 +1,47 @@
 "use client";
 
-import React, { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 interface AuthContextType {
+  isLoggedOut: boolean;
   isLoggedIn: boolean;
   login: () => void;
   logout: () => void;
 }
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+const AuthContext = createContext<AuthContextType>({
+  isLoggedOut: true,
+  isLoggedIn: false,
+  login: () => {},
+  logout: () => {},
+});
 
-export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  
+export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+  const [isLoggedOut, setIsLoggedOut] = useState(true);
 
-  const login = () => setIsLoggedIn(true);
-  const logout = () => {
-    localStorage.removeItem("userToken"); 
-    setIsLoggedIn(false); 
+  useEffect(() => {
+    // Check localStorage for login state
+    const loggedIn = localStorage.getItem("isLoggedIn") === "true";
+    setIsLoggedOut(!loggedIn);
+  }, []);
+
+  const login = () => {
+    setIsLoggedOut(false);
+    localStorage.setItem("isLoggedIn", "true"); // Persist login state
   };
 
+  const logout = () => {
+    setIsLoggedOut(true);
+    localStorage.removeItem("isLoggedIn"); // Clear login state
+  };
+
+  const isLoggedIn = !isLoggedOut;
+
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
+    <AuthContext.Provider value={{ isLoggedOut, isLoggedIn, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-export const useAuth = (): AuthContextType => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error("useAuth must be used within an AuthProvider");
-  }
-  return context;
-};
+export const useAuth = () => useContext(AuthContext);

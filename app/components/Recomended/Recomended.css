@@ -24,13 +24,6 @@
     width: 100%;
 }
 
-
-
-
-
-
-
-
 .for-you__recommended--books {
     display: flex;
     overflow-x: auto;
@@ -48,6 +41,22 @@
     border-radius: 4px;
     max-width: 200px;
     width: 100%;
+}
+
+.book__pill {
+    background-color: #032b41;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 18px;
+    padding: 0 8px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #fff;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
 }
 
 .book__image--wrapper {

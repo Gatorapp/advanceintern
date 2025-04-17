@@ -78,7 +78,6 @@ button:disabled {
   justify-content: center;
 }
 
-/* HOME */
 .section__title {
   font-size: 32px;
   color: #032b41;
@@ -87,7 +86,6 @@ button:disabled {
   font-weight: bold;
 }
 
-/* NAVBAR */
 .nav {
   height: 80px;
 }
@@ -131,7 +129,6 @@ button:disabled {
   cursor: pointer;
 }
 
-/* LANDING */
 .landing__wrapper {
   display: flex;
 }
@@ -167,7 +164,6 @@ button:disabled {
   line-height: 1.5;
 }
 
-/* FEATURES */
 .features__wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -207,19 +203,12 @@ button:disabled {
   font-weight: 300;
 }
 
-.statistics__heading {
+.statistics__heading,
+.statistics__heading2 {
   font-size: 32px;
   font-weight: 500;
   color: #6b757b;
   margin-bottom: 16px;
-}
-
-.statistics__heading:last-child {
-  margin-bottom: 0;
-}
-
-.statistics__heading--active {
-  color: #2bd97c;
 }
 
 .statistics__wrapper {
@@ -271,7 +260,12 @@ button:disabled {
   color: #394547;
 }
 
-/* REVIEWS */
+.statistics__heading--highlight,
+.statistics__heading2--highlight {
+  color: limegreen;
+  transition: all 0.5s ease-in-out;
+}
+
 .reviews__wrapper {
   max-width: 600px;
   margin: 0 auto;
@@ -313,7 +307,6 @@ button:disabled {
   justify-content: center;
 }
 
-/* NUMBERS */
 .numbers {
   background-color: #d7e9ff;
   display: flex;
@@ -473,10 +466,6 @@ button:disabled {
     margin-bottom: 32px;
   }
 
-  .statistics__heading {
-    font-size: 24px;
-  }
-
   .footer__top--wrapper {
     flex-direction: column;
     gap: 32px;
@@ -552,7 +541,6 @@ button:disabled {
   z-index: 1000;
 }
 
-/* Modal Overlay */
 .modal__overlay {
   position: fixed;
   top: 0;
@@ -563,7 +551,6 @@ button:disabled {
   z-index: 999; 
 }
 
-/* Modal Content */
 .modal__content {
   position: fixed;
   top: 50%;
@@ -574,12 +561,12 @@ button:disabled {
   border-radius: 8px;
   width: 400px;
   max-width: 90%;
-  z-index: 1000; /* Ensure it appears above the overlay */
+  z-index: 1000;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-/* Close Button */
+
 .modal__close {
   position: absolute;
   top: 10px;
@@ -588,7 +575,6 @@ button:disabled {
   cursor: pointer;
 }
 
-/* Form Group */
 .form__group {
   margin-bottom: 15px;
   text-align: left;
@@ -624,7 +610,7 @@ button:disabled {
 /* Guest Button */
 .btn--guest {
   font-size: 16px;
-  background-color: #3a579d; /* Original color */
+  background-color: #3a579d;
   color: #ffffff;
   padding: 10px 15px;
   border: 1px solid #ccc;
@@ -636,13 +622,12 @@ button:disabled {
 }
 
 .btn--guest:hover {
-  background-color: #2e477d; /* Darker shade */
+  background-color: #2e477d; 
 }
 
-/* Google Button */
 .btn--google {
   font-size: 16px;
-  background-color: #4285f4; /* Original Google red */
+  background-color: #4285f4;
   color: #ffffff;
   padding: 10px 15px;
   border: 1px solid #ccc;
@@ -677,7 +662,6 @@ button:disabled {
   background: #ccc;
 }
 
-/*Forgot Password*/
 .form__group--forgot {
   font-size: 14px;
   color:#3367d6;
@@ -685,7 +669,6 @@ button:disabled {
   margin: 24px auto 8px;
 }
 
-/* Don't have an account? */
 .auth__switch--btn {
   font-size: 14px;
   width: 100%;
@@ -715,3 +698,4 @@ button:disabled {
     margin: 0 auto;
   }
 }
+

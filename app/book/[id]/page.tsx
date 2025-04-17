@@ -34,6 +34,7 @@ const Book = ({ params }: BookPageProps) => {
     bookDescription: string;
     authorDescription: string;
     imageLink: string;
+    subscriptionRequired: boolean; // Added subscriptionRequired property
   }
   const router = useRouter();
   const [book, setBook] = useState<Book | null>(null);

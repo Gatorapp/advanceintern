@@ -5,15 +5,44 @@ import { AiFillAudio, AiFillBulb, AiFillFileText } from "react-icons/ai";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import { BiCrown } from "react-icons/bi";
 import { RiLeafLine } from "react-icons/ri";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "./components/Modal";
 
 export default function Home() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-  
-    const toggleModal = () => {
-      setIsModalOpen(!isModalOpen);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const toggleModal = () => setIsModalOpen(!isModalOpen);
+
+  const [activeHeadingIndex1, setActiveHeadingIndex1] = useState(0); 
+  const [activeHeadingIndex2, setActiveHeadingIndex2] = useState(0); 
+
+  useEffect(() => {
+    const headings1 = document.querySelectorAll(".statistics__heading");
+    const headings2 = document.querySelectorAll(".statistics__heading2");
+
+    if (headings1.length === 0 && headings2.length === 0) return;
+
+    
+    const interval1 = setInterval(() => {
+      headings1.forEach((heading) => heading.classList.remove("statistics__heading--highlight"));
+      if (headings1[activeHeadingIndex1]) {
+        headings1[activeHeadingIndex1].classList.add("statistics__heading--highlight");
+      }
+      setActiveHeadingIndex1((prevIndex) => (prevIndex + 1) % headings1.length);
+    }, 2000);
+    const interval2 = setInterval(() => {
+      headings2.forEach((heading) => heading.classList.remove("statistics__heading2--highlight"));
+      if (headings2[activeHeadingIndex2]) {
+        headings2[activeHeadingIndex2].classList.add("statistics__heading2--highlight");
+      }
+      setActiveHeadingIndex2((prevIndex) => (prevIndex + 1) % headings2.length);
+    }, 2000); 
+
+    return () => {
+      clearInterval(interval1); 
+      clearInterval(interval2); 
     };
+  }, [activeHeadingIndex1, activeHeadingIndex2]);
+
   return (
     <>
     <nav className="nav">
@@ -154,14 +183,15 @@ export default function Home() {
               </div>
             </div>
             <div
-              className="statistics__content--header statistics__content--header-second"
-            >
-              <div className="statistics__heading">Expand your learning</div>
-              <div className="statistics__heading">Accomplish your goals</div>
-              <div className="statistics__heading">Strengthen your vitality</div>
-              <div className="statistics__heading">Become a better caregiver</div>
-              <div className="statistics__heading">Improve your mood</div>
-              <div className="statistics__heading">Maximize your abilities</div>
+              className="statistics__content--header">
+                <div className="statistics__content--header">
+              <div className="statistics__heading2">Expand your learning</div>
+              <div className="statistics__heading2">Accomplish your goals</div>
+              <div className="statistics__heading2">Strengthen your vitality</div>
+              <div className="statistics__heading2">Become a better caregiver</div>
+              <div className="statistics__heading2">Improve your mood</div>
+              <div className="statistics__heading2">Maximize your abilities</div>
+              </div>
             </div>
           </div>
         </div>

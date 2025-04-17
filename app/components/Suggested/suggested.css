@@ -1,7 +1,6 @@
 .for-you__recommended--books {
     display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x;
+    overflow: hidden;
     margin-bottom: 32px;
     gap: 16px;
 }

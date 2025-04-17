@@ -81,6 +81,12 @@
   cursor: pointer;
 }
 
+.sidebar__link--wrapper.selected {
+  background-color: #32cd32; /* Green background */
+  border-left: 4px solid #32cd32; /* Optional green border */
+  color: white; /* Optional text color */
+}
+
 .sidebar__link--wrapper.selected::before {
   content: "";
   position: absolute;

@@ -11,30 +11,30 @@ import { useAuth } from "@/AuthContext";
 
 
 export default function Sidebar() {
-  const { isLoggedIn, login } = useAuth();
-  const router = useRouter();
+  const { isLoggedOut, login, logout } = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const router = useRouter();
   const [selectedLink, setSelectedLink] = useState(""); 
-
-  const handleSignInClick = () => {
-    setIsModalOpen(true);
-  };
 
   const handleLogin = () => {
     localStorage.setItem("userToken", "dummyToken");
-    login();
+    setIsModalOpen(true); 
+    login(); 
   };
 
-  const toggleModal = () => setIsModalOpen(!isModalOpen);
+  const handleLogout = () => {
+    localStorage.removeItem("userToken");
+    logout(); 
+  };
 
   const handleLoginSuccess = () => {
     setIsModalOpen(false);
-    router?.push("/for-you");
+    router?.push("#");
   };
-
+  
+  const toggleModal = () => setIsModalOpen(!isModalOpen);
   const handleLinkClick = (link: string) => {
-    setSelectedLink(link);
-    localStorage.setItem("selectedLink", link); 
+    setSelectedLink(link); 
   };
   
 
@@ -101,9 +101,9 @@ export default function Sidebar() {
               <div className="sidebar__link--text">Settings</div>
             </a>
             <a
-            className={`sidebar__link--wrapper ${selectedLink === "/helpsupport" ? "selected" : ""}`}
+            className={`sidebar__link--wrapper ${selectedLink === "/for-you" ? "selected" : ""}`}
             href="/for-you"
-            onClick={() => handleLinkClick("/helpsupport")}
+            onClick={() => handleLinkClick("/for-you")}
           >
             <div className="sidebar__link--line"></div>
             <div className="sidebar__icon--wrapper">
@@ -112,10 +112,10 @@ export default function Sidebar() {
             <div className="sidebar__link--text">Help & Support</div>
           </a>
 
-            {isLoggedIn ? (
+            {isLoggedOut ? (
               <div
                 className="sidebar__link--wrapper"
-                onClick={handleSignInClick}
+                onClick={handleLogin}
               >
                 <div className="sidebar__link--line"></div>
                 <div className="sidebar__icon--wrapper">
@@ -126,7 +126,7 @@ export default function Sidebar() {
             ) : (
               <div
                 className="sidebar__link--wrapper"
-                onClick={handleLogin}
+                onClick={handleLogout}
               >
                 <div className="sidebar__link--line"></div>
                 <div className="sidebar__icon--wrapper">

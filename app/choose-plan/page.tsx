@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client"
 
 import React, { useState } from 'react';
@@ -6,6 +7,7 @@ import { FaHandshake } from "react-icons/fa";
 import { RiPlantFill } from "react-icons/ri";
 import { IoDocumentText } from "react-icons/io5";
 import Modal from "../components/Modal";
+
 
 export default function Page() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -115,6 +117,7 @@ export default function Page() {
                             <Modal
                                 isOpen={isModalOpen}
                                 onClose={toggleModal}
+                                toggleModal={toggleModal}
                             >
                                 <div>
                                     <h2>Confirm Your Plan</h2>
