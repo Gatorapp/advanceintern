@@ -8,13 +8,17 @@ import Link from "next/link";
 import { useState } from "react";
 import Modal from "../Modal";
 import { useAuth } from "@/AuthContext";
+import { RiFontSize } from "react-icons/ri";
+import { useFontSize } from "@/FontSizeContext";
 
 
 export default function Sidebar() {
   const { isLoggedOut, login, logout } = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const router = useRouter();
-  const [selectedLink, setSelectedLink] = useState(""); 
+  const [selectedLink, setSelectedLink] = useState("");
+  const [activeFontSize, setActiveFontSize] = useState("medium"); 
+  const { fontSize, setFontSize } = useFontSize();
 
   const handleLogin = () => {
     localStorage.setItem("userToken", "dummyToken");
@@ -35,6 +39,10 @@ export default function Sidebar() {
   const toggleModal = () => setIsModalOpen(!isModalOpen);
   const handleLinkClick = (link: string) => {
     setSelectedLink(link); 
+  };
+
+  const handleFontSizeClick = (size: string) => {
+    setFontSize(size); // Update the global font size
   };
   
 
@@ -71,7 +79,7 @@ export default function Sidebar() {
           </a>
           <a 
           className={`sidebar__link--wrapper ${selectedLink === "/highlights" ? "selected" : ""}`}  
-          href="/for-you"
+          href="#"
           onClick={() => handleLinkClick("/highlights")}>
             <div className="sidebar__link--line"></div>
             <div className="sidebar__icon--wrapper">
@@ -86,6 +94,44 @@ export default function Sidebar() {
             </div>
             <div className="sidebar__link--text">Search</div>
           </a>
+          <div className="sidebar__link--wrapper sidebar__font--size-wrapper">
+        <div
+          className={`sidebar__font--size-icon ${
+            fontSize === "small" ? "sidebar__font--size-icon--active" : ""
+          }`}
+          onClick={() => handleFontSizeClick("small")}
+          title="Small Font"
+        >
+          <RiFontSize style={{ fontSize: "12px" }} />
+        </div>
+        <div
+          className={`sidebar__font--size-icon ${
+            fontSize === "medium" ? "sidebar__font--size-icon--active" : ""
+          }`}
+          onClick={() => handleFontSizeClick("medium")}
+          title="Medium Font"
+        >
+          <RiFontSize style={{ fontSize: "16px" }} />
+        </div>
+        <div
+          className={`sidebar__font--size-icon ${
+            fontSize === "large" ? "sidebar__font--size-icon--active" : ""
+          }`}
+          onClick={() => handleFontSizeClick("large")}
+          title="Large Font"
+        >
+          <RiFontSize style={{ fontSize: "20px" }} />
+        </div>
+        <div
+          className={`sidebar__font--size-icon ${
+            fontSize === "xlarge" ? "sidebar__font--size-icon--active" : ""
+          }`}
+          onClick={() => handleFontSizeClick("xlarge")}
+          title="Extra Large Font"
+        >
+          <RiFontSize style={{ fontSize: "24px" }} />
+        </div>
+      </div>
         </div>
         <div className="sidebar__bottom">
           <div className="sidebar__footer">

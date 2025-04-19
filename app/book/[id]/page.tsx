@@ -21,7 +21,7 @@ interface BookPageProps {
 const Book = ({ params }: BookPageProps) => {
   const [id, setId] = useState<string | null>(null);
   interface Book {
-    id: string; // Added id property
+    id: string; 
     title: string;
     author: string;
     subTitle: string;
@@ -34,7 +34,7 @@ const Book = ({ params }: BookPageProps) => {
     bookDescription: string;
     authorDescription: string;
     imageLink: string;
-    subscriptionRequired: boolean; // Added subscriptionRequired property
+    subscriptionRequired: boolean; 
   }
   const router = useRouter();
   const [book, setBook] = useState<Book | null>(null);

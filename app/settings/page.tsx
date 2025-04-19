@@ -33,6 +33,13 @@ export default function Page() {
             <div className="section__title page__title">Settings</div>
             
                 {isLoggedOut ? (
+                    <div className='settings__login--wrapper'>                      
+                      <img src="/assets/login.png" alt="login" width={1033} height={712} />
+                      <div className="settings__login--text">Log in to your account to see your details.</div>
+                    <button className='btn settings__login--btn' onClick={toggleModal}>Login</button>
+                    
+                  </div>
+                  ) : (
                   <>
                     <div className='setting__content'>
                         <div className="settings__sub--title">Your Subscription plan</div>
@@ -43,13 +50,6 @@ export default function Page() {
                         <div className="settings__text">patel@gmail.com</div>
                     </div>
                   </>
-                  ) : (
-                    <div className='settings__login--wrapper'>                      
-                      <img src="/assets/login.png" alt="login" width={1033} height={712} />
-                      <div className="settings__login--text">Log in to your account to see your details.</div>
-                    <button className='btn settings__login--btn' onClick={toggleModal}>Login</button>
-                    
-                  </div>
                 )}
               </div>
               <Modal

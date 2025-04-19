@@ -42,7 +42,7 @@ export default function Modal({ isOpen, toggleModal }: ModalProps) {
         await signInWithEmailAndPassword(auth, email, password);
       }
       toggleModal();
-      router.push("/for-you");
+      router.push("#");
     } catch (err: unknown) {
       if (err instanceof Error) {
         setError(err.message);
@@ -53,10 +53,9 @@ export default function Modal({ isOpen, toggleModal }: ModalProps) {
   };
 
   const handleGuestLogin = () => {
-    // Set a dummy token or flag to indicate guest login
     localStorage.setItem("guestUser", "true");
     toggleModal();
-    router.push("/for-you");
+    router.push("#");
   };
 
   const handleGoogleLogin = async () => {
@@ -66,7 +65,7 @@ export default function Modal({ isOpen, toggleModal }: ModalProps) {
     try {
       await signInWithPopup(auth, provider);
       toggleModal();
-      router.push("/for-you");
+      router.push("#");
     } catch (err: unknown) {
       if (err instanceof Error) {
         setError(err.message);

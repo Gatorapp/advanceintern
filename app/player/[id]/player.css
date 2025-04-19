@@ -59,19 +59,20 @@
     z-index: 9998;
 }
 
+
+.audio__wrapper>div {
+    width: calc(100% / 3);
+}
+
+.book__image {
+    width: 100%;
+    height: 100%;
+}
+
 .audio__track--wrapper {
     display: flex;
     gap: 12px;
 }
-
-.audio__wrapper>div {
-    width: calc(100% / 3);
-}
-
-.audio__wrapper>div {
-    width: calc(100% / 3);
-}
-
 .audio__track--details--wrapper {
     color: #fff;
     font-size: 14px;

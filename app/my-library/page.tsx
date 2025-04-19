@@ -17,7 +17,7 @@ interface Book {
 
 export default function Page() {
     const [library, setLibrary] = useState<Book[]>([]);
-    const { isLoggedIn } = useAuth();
+    const { isLoggedOut } = useAuth();
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const toggleModal = () => setIsModalOpen(!isModalOpen);
@@ -40,7 +40,7 @@ export default function Page() {
                 <Sidebar />
                 <div className="row">
                     <div className="container">
-                        {isLoggedIn ? (
+                        {isLoggedOut ? (
                             <>
                                 <div className='settings__login--wrapper'>
                                     <img src="/assets/login.png" alt="login" width={1033} height={712} />

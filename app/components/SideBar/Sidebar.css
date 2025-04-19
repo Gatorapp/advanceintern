@@ -73,30 +73,19 @@
     }
 }
 
-.sidebar__link--wrapper {
+.sidebar__font--size-wrapper {
   display: flex;
+  gap: 10px;
   align-items: center;
-  padding: 10px;
-  position: relative;
-  cursor: pointer;
+  justify-content: center;
+  margin-top: 10px;
 }
 
-.sidebar__link--wrapper.selected {
-  background-color: #32cd32; /* Green background */
-  border-left: 4px solid #32cd32; /* Optional green border */
-  color: white; /* Optional text color */
+.sidebar__font--size-icon--active {
+  border-bottom: 3px solid #2bd97c; /* Green border at the bottom */
 }
 
-.sidebar__link--wrapper.selected::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background-color: green; /* Solid green vertical line */
+.sidebar__link--wrapper:last-child {
+    margin-bottom: 0;
 }
 
-.sidebar__link--wrapper.selected .sidebar__link--text {
-  color: green; /* Optional: Change text color for the selected link */
-}
