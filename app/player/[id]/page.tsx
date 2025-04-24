@@ -33,7 +33,7 @@ export default function Page() {
 
     const { isLoggedOut } = useAuth();
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [player, setPlayer] = useState<Book[]>([]);
+    const [ player, setPlayer] = useState<Book[]>([]);
     const [filteredPlayer, setFilteredPlayer] = useState<Book[]>([]);
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
@@ -123,14 +123,15 @@ export default function Page() {
                                 <div
                                     key={player.id}
                                     className="audio__book--summary"
-                                    style={{ fontSize: "16px" }}
+                                    style={{ fontSize: "24px" }}
                                 >
                                     <div className="audio__book--summary-title">
                                         <b>{player.title}</b>
                                     </div>
                                     <div className="audio__book--summary-text"
                                         style={{
-                                            fontSize: fontSize === "small" ? "20px" :
+                                            fontSize: 
+                                            fontSize === "small" ? "20px" :
                                             fontSize === "medium" ? "24px" :
                                             fontSize === "large" ? "28px" :
                                             fontSize === "xlarge" ? "32px" :

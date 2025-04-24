@@ -16,8 +16,7 @@ export default function Sidebar() {
   const { isLoggedOut, login, logout } = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const router = useRouter();
-  const [selectedLink, setSelectedLink] = useState("");
-  const [activeFontSize, setActiveFontSize] = useState("medium"); 
+  const [selectedLink, setSelectedLink] = useState(""); 
   const { fontSize, setFontSize } = useFontSize();
 
   const handleLogin = () => {

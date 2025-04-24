@@ -262,7 +262,7 @@ button:disabled {
 
 .statistics__heading--highlight,
 .statistics__heading2--highlight {
-  color: limegreen;
+  color: GREEN;
   transition: all 0.5s ease-in-out;
 }
 

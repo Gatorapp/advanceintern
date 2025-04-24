@@ -126,13 +126,9 @@ export default function Home() {
               <div className="statistics__heading">Enhance your knowledge</div>
               <div className="statistics__heading">Achieve greater success</div>
               <div className="statistics__heading">Improve your health</div>
-              <div className="statistics__heading">
-                Develop better parenting skills
-              </div>
+              <div className="statistics__heading">Develop better parenting skills</div>
               <div className="statistics__heading">Increase happiness</div>
-              <div className="statistics__heading">
-                Be the best version of yourself!
-              </div>
+              <div className="statistics__heading">Be the best version of yourself!</div>
             </div>
             <div className="statistics__content--details">
               <div className="statistics__data">
