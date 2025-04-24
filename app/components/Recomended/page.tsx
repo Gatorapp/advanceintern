@@ -18,7 +18,7 @@ const Recomended = () => {
   }
 
   const [books, setBooks] = useState<Book[]>([]);
-  const { isLoggedOut } = useAuth(); // Use isLoggedOut from context
+  const { isLoggedOut } = useAuth(); 
 
   useEffect(() => {
     const fetchBooks = async () => {

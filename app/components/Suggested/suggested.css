@@ -1,8 +1,8 @@
 .for-you__recommended--books {
     display: flex;
-    overflow: hidden;
     margin-bottom: 32px;
     gap: 16px;
+    overflow: hidden;
 }
 
 .for-you__recommended--book-link {

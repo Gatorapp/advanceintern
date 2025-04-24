@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FaClock, FaRegStar } from 'react-icons/fa';
 import "../Suggested/suggested.css";
 import { useAuth } from '@/AuthContext';
+import Link from 'next/link';
 
 const Suggested = () => {
   interface Book {
@@ -16,7 +17,7 @@ const Suggested = () => {
     subscriptionRequired?: boolean;
   }
   const [books, setBooks] = useState<Book[]>([]);
-  const {isLoggedOut} = useAuth(); // Example state for isLoggedOut
+  const {isLoggedOut} = useAuth(); 
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -38,12 +39,9 @@ const Suggested = () => {
         <div className="for-you__sub--title">We think you&#39;ll like these</div>
         <div className="for-you__recommended--books">
         {books.slice(0, 5).map((book) => (
-          <a 
-            key={book.id} 
-            href={`/book/${book.id}`} 
-            className='for-you__recommended--book-link'
-          >
-            {!isLoggedOut && book.subscriptionRequired && (
+          <Link legacyBehavior key={book.id} href={`/book/${book.id}`} passHref>
+          <a className='for-you__recommended--book-link' >
+            {isLoggedOut && book.subscriptionRequired && (
                 <div className="book__pill book__pill--subscription-required">
                   Premium
                 </div>
@@ -65,6 +63,7 @@ const Suggested = () => {
               </div>
             </div>
           </a>
+          </Link>
         ))}
       </div>
     </section>

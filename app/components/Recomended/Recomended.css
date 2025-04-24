@@ -26,7 +26,6 @@
 
 .for-you__recommended--books {
     display: flex;
-    overflow-x: auto;
     gap: 16px;
     scroll-snap-type: mandatory;
     scroll-snap-type: x;

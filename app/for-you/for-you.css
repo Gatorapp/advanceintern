@@ -45,11 +45,7 @@
     width: 60%;
 }
 
-.book__image {
-    height: 140px;
-    width: 140px;
-    min-width: 140px;
-}
+
 
 .selected__book--text {
     width: 100%;
@@ -114,7 +110,6 @@
 
 .for-you__recommended--books {
     display: flex;
-    overflow-x: auto;
     gap: 16px;
     scroll-snap-type: mandatory;
     scroll-snap-type: x;
