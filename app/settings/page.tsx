@@ -1,6 +1,6 @@
 "use client";
 
-
+import { useRouter } from 'next/navigation';
 import Sidebar from '../components/SideBar/page';
 import React, { useState } from 'react';
 import './settings.css';
@@ -11,12 +11,17 @@ import { useAuth } from '@/AuthContext';
 export default function Page() {
   const { isLoggedOut } = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const router = useRouter();
   const toggleModal = () => setIsModalOpen(!isModalOpen);
+  
 
   const handleLoginSuccess = () => {
     setIsModalOpen(false); 
   };
+
+  const handleUpgradeClick = () => {
+    router.push('/choose-plan'); 
+  }  
 
   return (
     <div id="__next">
@@ -43,7 +48,7 @@ export default function Page() {
                   <>
                     <div className='setting__content'>
                         <div className="settings__sub--title">Your Subscription plan</div>
-                        <div className="settings__text">premium-plus</div>
+                        <button className="btn settings__upgrade--btn" onClick={handleUpgradeClick}>Upgrade to Premium</button>
                     </div>
                     <div className='setting__content'>
                         <div className="settings__sub--title">Email</div>

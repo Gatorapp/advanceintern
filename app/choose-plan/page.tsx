@@ -1,44 +1,45 @@
-/* eslint-disable @next/next/no-img-element */
-"use client"
+"use client";
 
-import React, { useState } from 'react';
-import '/app/choose-plan/choose-plan.css';
+import React, { useState } from "react";
+import { useRouter } from "next/navigation"; // Import useRouter
+import "/app/choose-plan/choose-plan.css";
 import { FaHandshake } from "react-icons/fa";
 import { RiPlantFill } from "react-icons/ri";
 import { IoDocumentText } from "react-icons/io5";
-import Modal from "../components/Modal";
-
 
 export default function Page() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
     const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const router = useRouter();
 
     const toggleAccordion = (index: number) => {
         setOpenIndex(openIndex === index ? null : index);
     };
 
-
     const handlePlanClick = (plan: string) => {
         setSelectedPlan(plan);
     };
 
-    const toggleModal = () => {
-        setIsModalOpen(!isModalOpen);
-    };
-
-
-
+    const handleProceedToPayment = () => {
+        if (selectedPlan) {
+          const amount = selectedPlan === "yearly" ? 9999 : 999; // Amount in cents
+          router.push(`/payment?amount=${amount}`); // Pass the amount as a query parameter
+        } else {
+          alert("Please select a plan before proceeding.");
+        }
+      };
 
     return (
-        <div id='__next'>
+        <div id="__next">
             <div className="wrapper wrapper-full">
                 <div className="sidebar__overlay sidebar__overlay--hidden"></div>
                 <div className="plan">
                     <div className="plan__header--wrapper">
                         <div className="plan__header">
                             <div className="plan__title">Get unlimited access to many amazing books to read</div>
-                            <div className="plan__sub--title">Turn ordinary moments into amazing learning opportunities</div>
+                            <div className="plan__sub--title">
+                                Turn ordinary moments into amazing learning opportunities
+                            </div>
                             <figure className="plan__img--mask">
                                 <img src="/assets/pricing-top.png" alt="pricing-top" />
                             </figure>
@@ -48,34 +49,38 @@ export default function Page() {
                         <div className="container">
                             <div className="plan__features--wrapper">
                                 <div className="plan__features">
-                                    <div className="plan__features--icon"><IoDocumentText /></div>
+                                    <div className="plan__features--icon">
+                                        <IoDocumentText />
+                                    </div>
                                     <div className="plan__features--text">
-                                        <b>Key ideas in few min</b>
-                                        with many books to read
+                                        <b>Key ideas in few min</b> with many books to read
                                     </div>
                                 </div>
                                 <div className="plan__features">
-                                    <div className="plan__features--icon"><RiPlantFill /></div>
+                                    <div className="plan__features--icon">
+                                        <RiPlantFill />
+                                    </div>
                                     <div className="plan__features--text">
-                                        <b>3 million</b>
-                                        people growing with Summarist everyday
+                                        <b>3 million</b> people growing with Summarist everyday
                                     </div>
                                 </div>
                                 <div className="plan__features">
-                                    <div className="plan__features--icon"><FaHandshake /></div>
+                                    <div className="plan__features--icon">
+                                        <FaHandshake />
+                                    </div>
                                     <div className="plan__features--text">
-                                        <b>Precise reommendations</b>
-                                        collections curated by experts
+                                        <b>Precise recommendations</b> collections curated by experts
                                     </div>
                                 </div>
                             </div>
                             <div className="section__title">Choose the plan that fits you</div>
                             <div
-                                className={`plan__card ${selectedPlan === 'yearly' ? 'plan__card--active' : ''}`}
-                                onClick={() => handlePlanClick('yearly')}
+                                className={`plan__card ${selectedPlan === "yearly" ? "plan__card--active" : ""
+                                    }`}
+                                onClick={() => handlePlanClick("yearly")}
                             >
                                 <div className="plan__card--circle">
-                                    {selectedPlan === 'yearly' && <div className="plan__card--dot"></div>}
+                                    {selectedPlan === "yearly" && <div className="plan__card--dot"></div>}
                                 </div>
                                 <div className="plan__card--content">
                                     <div className="plan__card--title">Premium Plus Yearly</div>
@@ -88,11 +93,12 @@ export default function Page() {
                             </div>
 
                             <div
-                                className={`plan__card ${selectedPlan === 'monthly' ? 'plan__card--active' : ''}`}
-                                onClick={() => handlePlanClick('monthly')}
+                                className={`plan__card ${selectedPlan === "monthly" ? "plan__card--active" : ""
+                                    }`}
+                                onClick={() => handlePlanClick("monthly")}
                             >
                                 <div className="plan__card--circle">
-                                    {selectedPlan === 'monthly' && <div className="plan__card--dot"></div>}
+                                    {selectedPlan === "monthly" && <div className="plan__card--dot"></div>}
                                 </div>
                                 <div className="plan__card--content">
                                     <div className="plan__card--title">Premium Monthly</div>
@@ -102,29 +108,22 @@ export default function Page() {
                             </div>
                             <div className="plan__card--cta">
                                 <span className="btn--wrapper">
-                                    <button className="btn btn--wide" onClick={toggleModal}>
+                                    <button className="btn btn--wide" onClick={handleProceedToPayment}>
                                         <span>
-                                            {selectedPlan === 'monthly' ? 'Start your first month' : 'Start your free 7-day trial'}
+                                            {selectedPlan === "monthly"
+                                                ? "Start your first month"
+                                                : "Start your free 7-day trial"}
                                         </span>
                                     </button>
                                 </span>
-                                    <div className="plan__disclaimer">
-                                        <span>
-                                            {selectedPlan === 'monthly' ? '30-day money back guarantee, no questions asked.' : 'Cancel your trial at any time before it ends, and you won&apos;t be charged.'}
-                                        </span>
-                                    </div>
-                            </div>
-                            <Modal
-                                isOpen={isModalOpen}
-                                onClose={toggleModal}
-                                toggleModal={toggleModal}
-                            >
-                                <div>
-                                    <h2>Confirm Your Plan</h2>
-                                    <p>You have selected the {selectedPlan} plan. Proceed to payment?</p>
-                                    <button onClick={toggleModal}>Close</button>
+                                <div className="plan__disclaimer">
+                                    <span>
+                                        {selectedPlan === "monthly"
+                                            ? "30-day money back guarantee, no questions asked."
+                                            : "Cancel your trial at any time before it ends, and you won&apos;t be charged."}
+                                    </span>
                                 </div>
-                            </Modal>
+                            </div>
                             <div className="faq__wrapper">
                                 <div className="accordion__card">
                                     <div className="accordion__header" onClick={() => toggleAccordion(0)}>
@@ -133,7 +132,8 @@ export default function Page() {
                                             stroke="currentColor"
                                             fill="currentColor"
                                             strokeWidth="0"
-                                            className={`accordion__icon ${openIndex === 0 ? "accordion__icon--rotate" : ""}`}
+                                            className={`accordion__icon ${openIndex === 0 ? "accordion__icon--rotate" : ""
+                                                }`}
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 16 16"
                                             height="1em"
@@ -145,12 +145,16 @@ export default function Page() {
                                     {openIndex === 0 && (
                                         <div className="collapse show">
                                             <div className="accordion__body">
-                                                Begin your complimentary 7-day trial with a Summarist annual membership. You are under no obligation to continue your subscription, and you will only be billed when the trial period expires. With Premium access, you can learn at your own pace and as frequently as you desire, and you may terminate your subscription prior to the conclusion of the 7-day free trial.
+                                                Begin your complimentary 7-day trial with a Summarist annual membership.
+                                                You are under no obligation to continue your subscription, and you will
+                                                only be billed when the trial period expires. With Premium access, you can
+                                                learn at your own pace and as frequently as you desire, and you may
+                                                terminate your subscription prior to the conclusion of the 7-day free
+                                                trial.
                                             </div>
                                         </div>
                                     )}
                                 </div>
-
                                 <div className="accordion__card">
                                     <div className="accordion__header" onClick={() => toggleAccordion(1)}>
                                         <div className="accordion__title">Can I switch subscriptions from monthly to yearly?</div>

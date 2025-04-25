@@ -18,16 +18,12 @@ export default function Sidebar() {
   const { isLoggedOut, login, logout } = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   const [selectedLink, setSelectedLink] = useState("");
   const { fontSize, setFontSize } = useFontSize();
 
   const isPlayerPage = /^\/player\/[^/]+$/.test(pathname || "");
-
-
-
-
-
 
   const handleLogin = () => {
     localStorage.setItem("userToken", "dummyToken");
@@ -51,7 +47,7 @@ export default function Sidebar() {
   };
 
   const handleFontSizeClick = (size: string) => {
-    setFontSize(size); // Update the global font size
+    setFontSize(size); 
   };
 
 
