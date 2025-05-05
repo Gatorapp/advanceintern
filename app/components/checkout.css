@@ -1,0 +1,149 @@
+/* General Container Styling */
+.App-Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  padding: 2rem;
+}
+
+.App {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+/* Left Section: Subscription Summary */
+.App-Overview {
+  flex: 1;
+  padding: 2rem;
+  background-color: #f4f6f8;
+  border-right: 1px solid #e0e0e0;
+}
+
+.App-Overview h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.App-Overview h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.App-Overview p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+/* Right Section: Payment Form */
+.checkout-form {
+  flex: 1;
+  padding: 2rem;
+}
+
+.checkout-form h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.checkout-form input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.checkout-form button {
+  width: 100%;
+  padding: 1rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.checkout-form button:hover {
+  background-color: #45a049;
+}
+
+.checkout-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.checkout-form__email {
+    width: "100%";
+    padding: "0.5rem";
+    marginBottom: "1rem";
+    border: "1px solid #ccc";
+    borderRadius: "4px";
+    fontSize: "1rem";
+}
+
+.checkout-form__cardholder-name {
+    width: "100%";
+    padding: "0.5rem";
+    marginBottom: "1rem";
+    border: "1px solid #ccc";
+    borderRadius: "4px";
+    fontSize: "1rem";
+}
+
+/* Google Pay Button */
+.checkout-form button[type="button"] {
+  background-color: #4285f4;
+  margin-bottom: 1rem;
+}
+
+.checkout-form button[type="button"]:hover {
+  background-color: #357ae8;
+}
+
+/* Card Element Styling */
+.checkout-form .StripeElement {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.upgrade-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  text-align: center; 
+  height: 100%; 
+  margin-bottom: 1rem; 
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .App {
+    flex-direction: column;
+  }
+
+  .App-Overview {
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+  }
+}

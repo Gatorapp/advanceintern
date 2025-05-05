@@ -39,7 +39,7 @@ export default function Page() {
     const [duration, setDuration] = useState(0);
     const { fontSize } = useFontSize();
 
-    const { id } = useParams(); // Get the id from the route parameters
+    const { id } = useParams();
 
     const toggleModal = () => setIsModalOpen(!isModalOpen);
 

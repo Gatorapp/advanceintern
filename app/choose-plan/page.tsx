@@ -23,7 +23,8 @@ export default function Page() {
     const handleProceedToPayment = () => {
         if (selectedPlan) {
           const amount = selectedPlan === "yearly" ? 9999 : 999; // Amount in cents
-          router.push(`/payment?amount=${amount}`); // Pass the amount as a query parameter
+          const planTitle = selectedPlan === "yearly" ? "Premium Plus Yearly" : "Premium Monthly"; // Plan title
+          router.push(`/payment?amount=${amount}&planTitle=${encodeURIComponent(planTitle)}`); // Pass amount and plan title
         } else {
           alert("Please select a plan before proceeding.");
         }
