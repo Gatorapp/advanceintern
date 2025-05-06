@@ -7,7 +7,7 @@ import "../for-you/for-you.css";
 import { FaPlayCircle } from "react-icons/fa";
 import Sidebar from "../components/SideBar/page";
 import SearchBar from "../components/SearchBar/page";
-import "../components/SearchBar/searchBar.css";
+import "../components/SearchBar/SearchBar.css";
 
 export default function Page() {
 
@@ -36,7 +36,6 @@ const [books, setBooks] = useState<Book[]>([]);
 
 
 useEffect(() => {
-    // Fetch data from the API
     fetch("https://us-central1-summaristt.cloudfunctions.net/getBooks?status=selected")
         .then((response) => response.json())
         .then((data) => setBooks(data))

@@ -68,7 +68,11 @@ export default function CheckoutForm({ amount }: CheckoutFormProps) {
       window.location.href = redirectUrl || "/for-you";
     } catch (err: unknown) {
       console.error("Payment Error:", err);
-      setError(err.message || "An error occurred during payment.");
+      if (err instanceof Error) {
+        setError(err.message || "An error occurred during payment.");
+      } else {
+        setError("An error occurred during payment.");
+      }
     } finally {
       setLoading(false);
     }

@@ -5,6 +5,7 @@ import "./SearchBar.css";
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
 import Link from "next/link";
 import { IoMdClose } from "react-icons/io";
+import "./SearchBar.css";
 
 type Book = {
   id: string;

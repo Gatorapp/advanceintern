@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useState } from 'react';
 import { FaClock, FaRegStar } from 'react-icons/fa';
 import "../Suggested/suggested.css";
