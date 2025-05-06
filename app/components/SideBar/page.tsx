@@ -1,3 +1,6 @@
+"use client";
+
+
 import { FaHome, FaBookmark, FaHighlighter, FaSearch } from "react-icons/fa";
 import { CiSettings } from "react-icons/ci";
 import { IoIosLogOut } from "react-icons/io";
