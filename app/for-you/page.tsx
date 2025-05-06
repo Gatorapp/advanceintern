@@ -8,6 +8,7 @@ import { FaPlayCircle } from "react-icons/fa";
 import Sidebar from "../components/SideBar/page";
 import SearchBar from "../components/SearchBar/page";
 import "../components/SearchBar/SearchBar.css";
+import "../components/SideBar/SideBar.css";
 
 export default function Page() {
 
