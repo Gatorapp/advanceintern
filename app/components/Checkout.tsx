@@ -75,16 +75,21 @@ export default function CheckoutForm({ amount }: CheckoutFormProps) {
   };
 
   return (
-    <div className="App-Container is-noBackground lfex-container justify-content-center">
+    <div className="App-Container is-noBackground flex-container justify-content-center">
       <div className="App App--singleItem">
         {/* Left Section: Subscription Summary */}
         <div className="App-Overview">
-          <h2>Summarist</h2>
+          <h2>Summarist
           {process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY?.startsWith("sk_test_") && <p>Test Mode</p>}
+          </h2>
           <h3 className="plan__card--title">{planTitle}</h3>
           <p>
             <strong>{loading ? "Processing..." : `Pay $${(parseInt(amount || "0", 10) / 100).toFixed(2)}`}</strong> per year
           </p>
+          <button className="btn"
+          onClick={() => window.history.back()}>
+            back
+            </button>
         </div>
 
         {/* Right Section: Payment Form */}
@@ -117,8 +122,6 @@ export default function CheckoutForm({ amount }: CheckoutFormProps) {
             placeholder="Cardholder Name"
           />
           </div>
-
-          {/* Error Message */}
 
           {/* Billing Address Input */}
           <div className="FormFieldGroup-labelContainer flex-container justify-content-space-between">
@@ -226,16 +229,6 @@ export default function CheckoutForm({ amount }: CheckoutFormProps) {
           <button
             type="submit"
             disabled={!stripe || loading}
-            style={{
-              width: "100%",
-              padding: "1rem",
-              backgroundColor: "#4CAF50",
-              color: "white",
-              border: "none",
-              borderRadius: "4px",
-              cursor: "pointer",
-              fontSize: "1rem",
-            }}
             onClick={handleSubmit}
           >
             {loading ? "Processing..." : `Pay $${(parseInt(amount || "0", 10) / 100).toFixed(2)}`}

@@ -19,6 +19,16 @@
   flex-direction: row;
 }
 
+button {
+    width: "100%";
+    padding: "1rem";
+    backgroundColor: "#4CAF50";
+    color: "white";
+    border: "none";
+    borderRadius: "4px";
+    cursor: "pointer";
+    fontSize: "1rem";
+}
 /* Left Section: Subscription Summary */
 .App-Overview {
   flex: 1;
@@ -135,6 +145,7 @@
   height: 100%; 
   margin-bottom: 1rem; 
 }
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
