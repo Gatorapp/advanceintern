@@ -91,7 +91,16 @@ export default function SearchBar() {
                           <div className="search__book--duration">
                             <div className="recommended__book--details">
                               <div className="recommended__book--details-icon">
-                                <svg className="search__delete--icon" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">…</svg>
+                                <svg 
+                                className="search__delete--icon" 
+                                stroke="currentColor" 
+                                fill="currentColor" 
+                                strokeWidth="0" 
+                                viewBox="0 0 24 24" 
+                                height="1em"
+                                width="1em" 
+                                xmlns="http://www.w3.org/2000/svg">…
+                                </svg>
                               </div>
                               <div className="recommended__book--details-text">
                                 04:52

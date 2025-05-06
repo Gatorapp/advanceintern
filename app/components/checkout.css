@@ -96,6 +96,15 @@ button {
   background-color: #45a049;
 }
 
+.manual-address-input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
 .checkout-form button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
@@ -117,6 +126,24 @@ button {
     border: "1px solid #ccc";
     borderRadius: "4px";
     fontSize: "1rem";
+}
+
+.manual-address-button {
+  background: none;
+  border: none;
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.manual-address-input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
 }
 
 /* Google Pay Button */

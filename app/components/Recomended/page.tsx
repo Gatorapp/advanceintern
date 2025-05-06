@@ -1,12 +1,12 @@
 "use client"
 
-
 import React, { useEffect, useState } from 'react';
 import { FaClock, FaRegStar } from 'react-icons/fa';
 import "../Recomended/Recomended.css";
 import Link from 'next/link';
 import { useAuth } from '@/AuthContext';
-import "../../styles/Recomended.css"; 
+
+
 
 
 const Recomended = () => {

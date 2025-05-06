@@ -66,7 +66,7 @@ export default function CheckoutForm({ amount }: CheckoutFormProps) {
       alert("Payment successful!");
 
       window.location.href = redirectUrl || "/for-you";
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Payment Error:", err);
       setError(err.message || "An error occurred during payment.");
     } finally {
@@ -131,29 +131,16 @@ export default function CheckoutForm({ amount }: CheckoutFormProps) {
           <input
             type="text"
             placeholder="Address"
-            style={{
-              width: "100%",
-              padding: "0.5rem",
-              marginBottom: "1rem",
-              border: "1px solid #ccc",
-              borderRadius: "4px",
-              fontSize: "1rem",
-            }}
+            className="manual-address-input"
           />
           </div>
 
           {/* Error Message */}
+          {error && <p className="error-message">{error}</p>}
           {/* Enter Address Manually Button */}
           <button
             type="button"
-            style={{
-              background: "none",
-              border: "none",
-              color: "#007bff",
-              textDecoration: "underline",
-              cursor: "pointer",
-              marginBottom: "1rem",
-            }}
+            className="manual-address-button"
             onClick={() => setShowManualAddress(!showManualAddress)}
           >
             Enter address manually
@@ -165,26 +152,11 @@ export default function CheckoutForm({ amount }: CheckoutFormProps) {
               <input
                 type="text"
                 placeholder="Address Line 1"
-                style={{
-                  width: "100%",
-                  padding: "0.5rem",
-                  marginBottom: "1rem",
-                  border: "1px solid #ccc",
-                  borderRadius: "4px",
-                  fontSize: "1rem",
-                }}
+                className="manual-address-input"
               />
               <input
                 type="text"
                 placeholder="Address Line 2"
-                style={{
-                  width: "100%",
-                  padding: "0.5rem",
-                  marginBottom: "1rem",
-                  border: "1px solid #ccc",
-                  borderRadius: "4px",
-                  fontSize: "1rem",
-                }}
               />
               <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
                 <input

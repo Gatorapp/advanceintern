@@ -4,6 +4,7 @@ import "../Suggested/suggested.css";
 import { useAuth } from '@/AuthContext';
 import Link from 'next/link';
 
+
 const Suggested = () => {
   interface Book {
     id: string;
