@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import "./SearchBar.css";
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
