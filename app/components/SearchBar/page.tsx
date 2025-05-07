@@ -5,6 +5,7 @@ import { HiMiniMagnifyingGlass } from "react-icons/hi2";
 import Link from "next/link";
 import { IoMdClose } from "react-icons/io";
 import "./searchBar.css";
+import Image from "next/image";
 
 type Book = {
   id: string;
@@ -44,7 +45,8 @@ export default function SearchBar() {
       <div className="wrapper">
         <div className="search__background">
           <div className="search__wrapper">
-            <figure><img src="logo" alt="" /></figure>
+            <figure>
+              <img src="logo" alt="" /></figure>
             <div className="search__content">
               <div className="search">
                 <div className="search__input--wrapper">
@@ -79,7 +81,7 @@ export default function SearchBar() {
                             minWidth: "80px",
                           }}
                         >
-                          <img
+                          <Image
                             className="book__image"
                             src={book.imageLink || "/assets/default-book.png"}
                             alt={book.title || "Book Image"}

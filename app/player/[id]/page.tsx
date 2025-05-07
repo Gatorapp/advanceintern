@@ -104,6 +104,7 @@ export default function Page() {
                         {isLoggedOut ? (
                             <div className="settings__login--wrapper">
                                 <img
+                                    className="settings__login--image"
                                     src="/assets/login.png"
                                     alt="login"
                                     width={1033}
