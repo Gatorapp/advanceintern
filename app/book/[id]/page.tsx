@@ -109,12 +109,12 @@ const Book = ({ params }: BookPageProps) => {
     const existing = localStorage.getItem("myLibrary");
     let library: Book[] = existing ? JSON.parse(existing) : [];
   
-    if (savedBooks.includes(book.id)) {
+    if (savedBooks.includes(Number(book.id))) {
       library = library.filter((b) => b.id !== book.id);
-      setSavedBooks((prev) => prev.filter((id) => id !== book.id));
+      setSavedBooks((prev) => prev.filter((id) => id !== Number(book.id)));
     } else {
       library.push(book);
-      setSavedBooks((prev) => [...prev, book.id]);
+      setSavedBooks((prev) => [...prev, Number(book.id)]);
     }
   
     localStorage.setItem("myLibrary", JSON.stringify(library));
@@ -174,7 +174,7 @@ const Book = ({ params }: BookPageProps) => {
                         <div className="inner-book__read--text">Listen</div>
                       </button>
                     </div>
-                      {savedBooks.includes(book.id) ? (
+                      {savedBooks.includes(Number(book.id)) ? (
                     <div className="inner-book__bookmark">
                           <IoBookmark className="inner-book__icon"/>
                         <button className="saved-btn" onClick={() => handleAddToLibrary(book)}>
