@@ -33,8 +33,7 @@ export default function Page() {
 
     const { isLoggedOut } = useAuth();
     const [isModalOpen, setIsModalOpen] = useState(false);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [player, setPlayer] = useState<Book[]>([]);
+    const [ player, setPlayer] = useState<Book[]>([]);
     const [filteredPlayer, setFilteredPlayer] = useState<Book[]>([]);
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);

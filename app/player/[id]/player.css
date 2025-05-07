@@ -91,6 +91,12 @@
     max-width: 48px;
 }
 
+.book__image--dimensions {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+}
+
 .audio__controls, 
 .audio__controls--btn {
     display: flex;
@@ -167,3 +173,26 @@
     -webkit-appearance: none;
 }
 
+.font-size-small {
+    font-size: 20px;
+}
+
+.font-size-medium {
+    font-size: 24px;
+}
+
+.font-size-large {
+    font-size: 28px;
+}
+
+.font-size-xlarge {
+    font-size: 32px;
+}
+
+.font-size-default {
+    font-size: 24px;
+}
+
+.font-size-large {
+    font-size: 24px;
+}

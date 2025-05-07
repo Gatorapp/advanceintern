@@ -119,6 +119,12 @@ button {
     fontSize: "1rem";
 }
 
+.manual-address-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
 .checkout-form__cardholder-name {
     width: "100%";
     padding: "0.5rem";
@@ -171,6 +177,11 @@ button {
   text-align: center; 
   height: 100%; 
   margin-bottom: 1rem; 
+}
+
+.subscription-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 

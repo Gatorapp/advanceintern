@@ -14,6 +14,11 @@
     height: 80px;
     z-index: 1;
 }
+.book__image--wrapper {
+  height: 80px;
+  width: 80px;
+  min-width: 80px;
+}
 
 .search__wrapper {
     position: relative;

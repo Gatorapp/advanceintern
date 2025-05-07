@@ -97,8 +97,8 @@ export default function CheckoutForm({ amount }: CheckoutFormProps) {
         </div>
 
         {/* Right Section: Payment Form */}
-        <div className="checkout-form" style={{ flex: 1 }}>
-          <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>Complete Your Payment</h1>
+        <div className="checkout-form checkout-form--flex">
+          <h1 className="checkout-form__title">Complete Your Payment</h1>
 
           {/* Email Input */}
           <input
@@ -162,41 +162,22 @@ export default function CheckoutForm({ amount }: CheckoutFormProps) {
                 type="text"
                 placeholder="Address Line 2"
               />
-              <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
+              <div className="manual-address-row">
                 <input
+                className="manual-address-input"
                   type="text"
                   placeholder="City"
-                  style={{
-                    flex: 1,
-                    padding: "0.5rem",
-                    border: "1px solid #ccc",
-                    borderRadius: "4px",
-                    fontSize: "1rem",
-                  }}
                 />
                 <input
+                  className="manual-address-input"
                   type="text"
-                  placeholder="Pin"
-                  style={{
-                    flex: 1,
-                    padding: "0.5rem",
-                    border: "1px solid #ccc",
-                    borderRadius: "4px",
-                    fontSize: "1rem",
-                  }}
+                  placeholder="Zip Code"
                 />
               </div>
               <input
+                className="manual-address-input"
                 type="text"
                 placeholder="State"
-                style={{
-                  width: "100%",
-                  padding: "0.5rem",
-                  marginBottom: "1rem",
-                  border: "1px solid #ccc",
-                  borderRadius: "4px",
-                  fontSize: "1rem",
-                }}
               />
             </div>
           )}

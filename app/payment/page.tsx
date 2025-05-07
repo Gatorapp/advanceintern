@@ -16,7 +16,7 @@ export default function PaymentPage() {
   return (
     <div className="payment-page">
       <div className="upgrade-container">
-        <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>Subscribe to Summarist Premium Plus</h1>
+        <h1 className="subscription-title">Subscribe to Summarist Premium Plus</h1>
       </div>
       <Elements stripe={stripePromise}>
         <CheckoutForm amount={amount} />
