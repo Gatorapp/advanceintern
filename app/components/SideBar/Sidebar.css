@@ -20,6 +20,10 @@
     margin: 0 auto;
 }
 
+.sidebar__logo-image {
+  cursor: pointer;
+}
+
 .sidebar__logo img {
     width: 100%;
     height: 40px;

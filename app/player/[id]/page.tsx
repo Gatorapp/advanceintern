@@ -124,20 +124,13 @@ export default function Page() {
                                 <div
                                     key={player.id}
                                     className="audio__book--summary"
-                                    style={{ fontSize: "24px" }}
                                 >
                                     <div className="audio__book--summary-title">
                                         <b>{player.title}</b>
                                     </div>
-                                    <div className="audio__book--summary-text"
-                                        style={{
-                                            fontSize: 
-                                            fontSize === "small" ? "20px" :
-                                            fontSize === "medium" ? "24px" :
-                                            fontSize === "large" ? "28px" :
-                                            fontSize === "xlarge" ? "32px" :
-                                            "24px", 
-                                }}   >
+                                <div
+                                    className={`audio__book--summary-text font-size-${fontSize}`}
+                                >
                                         {player.summary}
                                     </div>
                                     <div className="audio__wrapper">

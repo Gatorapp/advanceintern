@@ -6,7 +6,6 @@ import { CiSettings } from "react-icons/ci";
 import { IoIosLogOut } from "react-icons/io";
 import { IoIosHelpCircleOutline } from "react-icons/io";
 import { useRouter } from "next/compat/router";
-import Link from "next/link";
 import { useState } from "react";
 import Modal from "../Modal";
 import { useAuth } from "@/AuthContext";
@@ -14,6 +13,7 @@ import { RiFontSize } from "react-icons/ri";
 import { useFontSize } from "@/FontSizeContext";
 import "./Sidebar.css";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 
 
@@ -57,9 +57,7 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebar__logo">
-        <Link href="/for-you" passHref>
-          <img src="/assets/logo.png" alt="logo" width={100} height={100} style={{ cursor: "pointer" }} />
-        </Link>
+          <Image src="/assets/logo.png" alt="logo" width={100} height={100} className="sidebar__logo-image" />
       </div>
       <div className="sidebar__wrapper">
         <div className="sidebar__top">
