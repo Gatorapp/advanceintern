@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
 import Link from "next/link";
 import { IoMdClose } from "react-icons/io";
-import "../SearchBar/SearchBar.css";
+import "./searchBar.css";
 
 type Book = {
   id: string;
