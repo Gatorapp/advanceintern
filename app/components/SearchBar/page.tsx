@@ -1,11 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import "./SearchBar.css";
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
 import Link from "next/link";
 import { IoMdClose } from "react-icons/io";
-import "./SearchBar.css";
+import "../SearchBar/SearchBar.css";
 
 type Book = {
   id: string;
