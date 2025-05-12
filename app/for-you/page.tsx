@@ -6,8 +6,7 @@ import Suggested from "../components/Suggested/page";
 import "../for-you/for-you.css";
 import { FaPlayCircle } from "react-icons/fa";
 import Sidebar from "../components/SideBar/page";
-import SearchBar from "../components/SearchBar/page";
-import "../components/SearchBar/searchBar.css";
+import "../components/SearchBar/searchbar.css";
 
 export default function Page() {
 
