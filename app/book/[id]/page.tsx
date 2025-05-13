@@ -175,7 +175,7 @@ const Book = ({ params }: BookPageProps) => {
                         <div className="inner-book__read--text">Listen</div>
                       </button>
                     </div>
-                      {savedBooks.includes(book.id) ? (
+                      {savedBooks.includes(Number(book.id)) ? (
                     <div className="inner-book__bookmark">
                           <IoBookmark className="inner-book__icon"/>
                         <button className="saved-btn" onClick={() => handleAddToLibrary(book)}>

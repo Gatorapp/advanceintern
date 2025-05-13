@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+;
 import { AiFillAudio, AiFillBulb, AiFillFileText } from "react-icons/ai";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import { BiCrown } from "react-icons/bi";
@@ -48,7 +48,7 @@ export default function Home() {
     <nav className="nav">
       <div className="nav__wrapper">
         <figure className="nav__img--mask">
-          <Image className="nav__img" src="/assets/logo.png" alt="logo" width={100} height={50} />
+          <img className="nav__img" src="/assets/logo.png" alt="logo" width={100} height={50} />
         </figure>
         <ul className="nav__list--wrapper">
         <li className="nav__list nav__list--login" onClick={toggleModal}>Login</li>
@@ -82,7 +82,7 @@ export default function Home() {
                   </div>
             </div>
             <figure className="landing__image--mask">
-              <Image src="/assets/landing.png" alt="landing" width={500} height={300} />
+              <img src="/assets/landing.png" alt="landing" width={500} height={300} />
             </figure>
           </div>
         </div>

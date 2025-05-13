@@ -118,6 +118,7 @@ export default function Sidebar() {
               >
                 <RiFontSize style={{ fontSize: "16px" }} />
               </div>
+              
               <div
                 className={`sidebar__font--size-icon ${fontSize === "large" ? "sidebar__font--size-icon--active" : ""
                   }`}
