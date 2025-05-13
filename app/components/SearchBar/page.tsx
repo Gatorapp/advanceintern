@@ -75,7 +75,7 @@ export default function SearchBar() {
                     <div key={book.id} className="search__book">
                       <Link className="search__book--link" href={`/book/${book.id}`}>
                         <figure className="book__image--wrapper">
-                          <Image
+                          <img
                             className="book__image"
                             src={book.imageLink || "/assets/default-book.png"}
                             alt={book.title || "Book Image"}

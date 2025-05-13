@@ -7,6 +7,7 @@ import { BiCrown } from "react-icons/bi";
 import { RiLeafLine } from "react-icons/ri";
 import { useEffect, useState } from "react";
 import Modal from "./components/Modal";
+import Image from "next/image";
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -48,7 +49,7 @@ export default function Home() {
     <nav className="nav">
       <div className="nav__wrapper">
         <figure className="nav__img--mask">
-          <img className="nav__img" src="/assets/logo.png" alt="logo" width={100} height={50} />
+          <Image className="nav__img" src="/assets/logo.png" alt="logo" width={100} height={50} />
         </figure>
         <ul className="nav__list--wrapper">
         <li className="nav__list nav__list--login" onClick={toggleModal}>Login</li>
@@ -82,7 +83,7 @@ export default function Home() {
                   </div>
             </div>
             <figure className="landing__image--mask">
-              <img src="/assets/landing.png" alt="landing" width={500} height={300} />
+              <Image src="/assets/landing.png" alt="landing" width={500} height={300} />
             </figure>
           </div>
         </div>

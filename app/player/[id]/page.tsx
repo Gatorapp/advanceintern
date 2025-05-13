@@ -9,6 +9,7 @@ import SearchBar from "@/app/components/SearchBar/page";
 import Modal from "@/app/components/Modal";
 import { useAuth } from "@/AuthContext";
 import { useFontSize } from "@/FontSizeContext";
+import Image from "next/image";
 
 export default function Page() {
     interface Book {
@@ -103,7 +104,7 @@ export default function Page() {
                         <SearchBar />
                         {isLoggedOut ? (
                             <div className="settings__login--wrapper">
-                                <img
+                                <Image
                                     className="settings__login--image"
                                     src="/assets/login.png"
                                     alt="login"
